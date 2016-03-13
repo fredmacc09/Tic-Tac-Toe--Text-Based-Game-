@@ -11,11 +11,18 @@ import java.util.Random;
 
 public class Computer {
 	Random rand = new Random();// creates random generator object
-	private int pick1 = rand.nextInt(9);//position choice
+	private int computerPick = rand.nextInt(9);//position choice
+
 	public int getPickCpu() {// gets the pick chosen by the computer
-		return pick1;
+		if(computerPick == 0){
+			computerPick = 1;
+		}
+		return computerPick;
 	}
 	public void setPickCpu(int pick) {// sets the pick of the computer
-		this.pick1 = pick;
+		if(computerPick == 0){
+			computerPick = 1;
+		}
+		this.computerPick = pick;
 	}
 }

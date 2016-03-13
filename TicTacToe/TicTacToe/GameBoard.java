@@ -71,9 +71,12 @@ public class GameBoard {
 	/**
 	 * This method checks the game board for the player's 
 	 * choice and determines if the player has one or not 
+	 * @return Game Over is returned to game logic to state end of game
+	 * @return Keep Going is returned to game logic to keep the game going
 	 */
-	public void gameWonCheck(){
-			if( //check for diagonal win
+	public String gameWonCheck(){ 
+			if( //check for user win
+				//check for diagonal win
 				(gameBoard[0][0] == 'X' && gameBoard[1][1] == 'X' && gameBoard[2][2] == 'X')||//left-right diagonal
 				(gameBoard[0][2] == 'X' && gameBoard[1][1] == 'X' && gameBoard[2][0] == 'X')||//right-left diagonal
 			    //check for column win
@@ -84,8 +87,7 @@ public class GameBoard {
 				(gameBoard[0][0] == 'X' && gameBoard[0][1] == 'X' && gameBoard[0][2] == 'X')||//first row
 				(gameBoard[1][0] == 'X' && gameBoard[1][1] == 'X' && gameBoard[1][2] == 'X')||//second row
 				(gameBoard[2][0] == 'X' && gameBoard[2][1] == 'X' && gameBoard[2][2] == 'X')) {//third row
-				System.out.println("You are the Tic Tac Toe GOD!!!");
-				System.exit(0);
+				return "Game Win User";
 			} 
 			else if(//checks for AI win
 				//check for diagonal win
@@ -99,8 +101,8 @@ public class GameBoard {
 				(gameBoard[0][0] == 'O' && gameBoard[0][1] == 'O' && gameBoard[0][2] == 'O')||//first row
 				(gameBoard[1][0] == 'O' && gameBoard[1][1] == 'O' && gameBoard[1][2] == 'O')||//second row
 				(gameBoard[2][0] == 'O' && gameBoard[2][1] == 'O' && gameBoard[2][2] == 'O')) {//third row
-			  System.out.println("For shame, For shame");
-			  System.exit(0);
+			  return "Game Win AI";
 			}
+			return "Keep Going";
 		}
 }
